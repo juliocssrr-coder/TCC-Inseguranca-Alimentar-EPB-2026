@@ -134,3 +134,64 @@ Isso move o código inicial (de exemplo) pra uma pasta chamada `app-example` e c
 
 - [Expo no GitHub](https://github.com/expo/expo)
 - [Discord da Expo](https://chat.expo.dev/)
+
+⚠️ Erros comuns no Git e como resolver
+1. Push rejeitado (branch atrás do remoto)
+Mensagem típica:
+]
+! [rejected] main -> main (non-fast-forward)
+error: failed to push some refs...
+
+➡ Isso significa que sua branch local está desatualizada em relação ao repositório remoto.
+Solução:
+
+git pull
+git add .
+git commit
+git push
+
+2. Merge não concluído
+Mensagem típica:
+
+error: You have not concluded your merge (MERGE_HEAD exists).
+fatal: Exiting because of unfinished merge.
+
+➡ O Git iniciou um merge mas você não finalizou.
+Solução:
+
+git status
+
+→ Verifique os arquivos com conflito, edite e resolva.
+Depois:
+
+git add .
+git commit
+git push
+
+3. Commit parcial durante merge
+Mensagem típica:
+
+fatal: cannot do a partial commit during a merge.
+
+➡ Isso acontece quando você tenta commitar só parte das mudanças durante um merge.
+Solução:
+
+git add .
+git commit -m "Mensagem de merge"
+git push
+
+4. Conflitos de sincronização
+➡ Ocorre quando dois membros do grupo alteram o mesmo arquivo ao mesmo tempo.
+Solução:
+
+O Git mostrará os trechos conflitantes dentro dos arquivos.
+
+Resolva manualmente escolhendo qual versão manter.
+
+Depois finalize:
+
+git add .
+git commit
+git push
+
+
